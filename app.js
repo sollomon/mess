@@ -13,6 +13,7 @@ const resolvers = require('./resolvers');
 const models = require('./models');
 const secret = require('./config').secret;
 
+const port= process.env.PORT || 3003
 
 const app = express();
 app.use('/uploads', express.static('uploads'))
@@ -87,4 +88,4 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-httpServer.listen(3003, ()=>console.log('message server 3003'))
+httpServer.listen(port, ()=>console.log(`started port ${port}`))
